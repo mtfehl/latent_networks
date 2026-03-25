@@ -1,0 +1,30 @@
+# R History and Data
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+
+# RStudio specific files
+.Rproj.user/
+
+# OAuth2 token requests
+.httr-oauth
+
+# knitr, R Markdown, and Quarto cache/temp directories
+*_cache/
+/cache/
+*.utf8.md
+*.knit.md
+/.quarto/
+_site/
+_freeze/
+images/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

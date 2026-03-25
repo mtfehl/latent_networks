@@ -1,9 +1,13 @@
 {
     "sortOrder": [
         {
+            "columnIndex": 1,
+            "ascending": false
+        },
+        {
             "columnIndex": 2,
             "ascending": true
         }
     ],
-    "path": "C:/Users/T14/7Programming/R/class/latent_networks"
+    "path": "C:/Users/T14/7Programming/R/class"
 }
