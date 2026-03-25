@@ -1,9 +1,0 @@
-project:
-  type: website
-  output-dir: docs
-
-website:
-  site-url: "https://mtfehl.github.io/latent_networks/"
-  
-metadata-files:
-  - ../../../_website.yml
