@@ -16,7 +16,7 @@ execute:
   echo: true    
   message: false
   warning: false
-  cache: true    
+  freeze: true
 ---
 
 # Course overview

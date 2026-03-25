@@ -1,0 +1,198 @@
+[
+  {
+    "objectID": "projects/project01/project01.html",
+    "href": "projects/project01/project01.html",
+    "title": "Project:",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Latent Network Models in Applied Economics",
+    "section": "",
+    "text": "17 min\n\nReview of distributions, independence, conditional independence, and dependence testing\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#class-notes",
+    "href": "index.html#class-notes",
+    "title": "Latent Network Models in Applied Economics",
+    "section": "",
+    "text": "17 min\n\nReview of distributions, independence, conditional independence, and dependence testing\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Latent Network Models in Applied Economics",
+    "section": "Projects",
+    "text": "Projects\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html",
+    "href": "notes/01intro/lecture01.html",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "",
+    "text": "Modern applied economics increasingly confronts high-dimensional dependence: datasets where many variables interact simultaneously; asset returns, macroeconomic indicators, firm-level panel data, cross-country flows. Standard regression tools break down when the number of relationships grows faster than the data can support. This course introduces network models as a principled way to describe and estimate these complex dependency structures.\nThe central premise is that most of these dependencies have structure and that structure can be exploited. Specifically, many pairs of variables that appear related are only connected indirectly, through other variables. Once we condition on the right set of controls, the dependence disappears. This is the idea of conditional independence, and it is the foundation of everything that follows.\n\n\n\nThe course progresses through five main blocks across eight lectures:\n\nBasic concepts: graph terminology, random graphs, and the language of conditional independence that underlies all network models.\nLASSO estimation: sparse and high-dimensional estimation techniques, because real-world networks are too large for brute-force approaches.\nContemporaneous networks: Gaussian graphical models and partial correlation networks, learning the simultaneous dependence structure among variables.\nDynamic networks: Granger networks, extending the framework to capture lagged or temporal dependence (who predicts whom?).\nBreakpoint detection on networks: change point detection, asking whether the network structure itself shifts over time.\n\nA recurring theme: the network is typically not observed directly. It is a latent quantity that must be estimated from data. In many cases, this reduces to a problem of covariance estimation: learning which entries of the precision matrix \\(K = \\Sigma^{-1}\\) are zero.\n\n\n\nThe theoretical toolkit rests on three pillars:\n\nConditional independence: tells us what can be ignored, turning intractable problems into tractable ones.\nGraphical models: encode conditional independence visually, separating direct from indirect relationships, which is crucial for causal and policy reasoning.\nLatent variables: capture hidden drivers such as confounders, common shocks, market factors, and unobserved heterogeneity.\n\n\\[\n\\text{Conditional independence} + \\text{Graphs} + \\text{Latent variables} = \\text{Scalable structure for modern empirical work}\n\\]\nNote that this course"
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#motivation",
+    "href": "notes/01intro/lecture01.html#motivation",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "",
+    "text": "Modern applied economics increasingly confronts high-dimensional dependence: datasets where many variables interact simultaneously; asset returns, macroeconomic indicators, firm-level panel data, cross-country flows. Standard regression tools break down when the number of relationships grows faster than the data can support. This course introduces network models as a principled way to describe and estimate these complex dependency structures.\nThe central premise is that most of these dependencies have structure and that structure can be exploited. Specifically, many pairs of variables that appear related are only connected indirectly, through other variables. Once we condition on the right set of controls, the dependence disappears. This is the idea of conditional independence, and it is the foundation of everything that follows."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#course-arc",
+    "href": "notes/01intro/lecture01.html#course-arc",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "",
+    "text": "The course progresses through five main blocks across eight lectures:\n\nBasic concepts: graph terminology, random graphs, and the language of conditional independence that underlies all network models.\nLASSO estimation: sparse and high-dimensional estimation techniques, because real-world networks are too large for brute-force approaches.\nContemporaneous networks: Gaussian graphical models and partial correlation networks, learning the simultaneous dependence structure among variables.\nDynamic networks: Granger networks, extending the framework to capture lagged or temporal dependence (who predicts whom?).\nBreakpoint detection on networks: change point detection, asking whether the network structure itself shifts over time.\n\nA recurring theme: the network is typically not observed directly. It is a latent quantity that must be estimated from data. In many cases, this reduces to a problem of covariance estimation: learning which entries of the precision matrix \\(K = \\Sigma^{-1}\\) are zero."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#three-pillars",
+    "href": "notes/01intro/lecture01.html#three-pillars",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "",
+    "text": "The theoretical toolkit rests on three pillars:\n\nConditional independence: tells us what can be ignored, turning intractable problems into tractable ones.\nGraphical models: encode conditional independence visually, separating direct from indirect relationships, which is crucial for causal and policy reasoning.\nLatent variables: capture hidden drivers such as confounders, common shocks, market factors, and unobserved heterogeneity.\n\n\\[\n\\text{Conditional independence} + \\text{Graphs} + \\text{Latent variables} = \\text{Scalable structure for modern empirical work}\n\\]\nNote that this course"
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#joint-marginal-and-conditional-distributions",
+    "href": "notes/01intro/lecture01.html#joint-marginal-and-conditional-distributions",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Joint, marginal, and conditional distributions",
+    "text": "Joint, marginal, and conditional distributions\nLet \\((X, Y)\\) be a random vector. The joint distribution describes the full probabilistic behaviour of both variables together:\n\nContinuous case: joint density \\(f_{XY}(x, y)\\)\nDiscrete case: \\(f_{XY}(x, y) = P(X = x, Y = y)\\)\n\nJoint distributions are how we formally capture co-movement in economics: inflation and unemployment, returns on two assets, income and consumption, treatment assignment and outcomes.\nMarginal distributions are obtained by integrating (or summing) out one variable:\n\\[\nf_X(x) = \\int f_{XY}(x, y) \\, dy \\qquad \\text{(continuous)}, \\qquad f_X(x) = \\sum_y f_{XY}(x, y) \\qquad \\text{(discrete)}.\n\\]\nGeometrically, you collapse the 2D density onto one axis — projecting out the variable you don’t care about.\nConditional distributions answer: “given that \\(X = x\\), what does \\(Y\\) look like?”\n\\[\nf_{Y|X}(y \\mid x) = \\frac{f_{XY}(x, y)}{f_X(x)}, \\qquad \\text{for } f_X(x) &gt; 0.\n\\]\nThis is Bayes’ rule in density form. Conditioning means restricting to a subpopulation: among employed workers, among treated units, among firms in distress, among borrowers with a given credit score.\n\n\n\n\n\n\nWarningThe direction of conditioning matters\n\n\n\nAn AI fraud detector flags transactions with 90% sensitivity \\(P(+ \\mid F) = 0.9\\) and 90% specificity \\(P(- \\mid F^c) = 0.9\\), but fraud prevalence is only 1%.\n\\[\nP(F \\mid +) = \\frac{P(+ \\mid F) P(F)}{P(+)} = \\frac{0.009}{0.009 + 0.099} \\approx 0.083.\n\\]\nEven a strong test generates mostly false alarms when the base rate is low. \\(P(F \\mid +) \\neq P(+ \\mid F)\\) — this is the base rate fallacy."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#conditional-expectation-as-regression",
+    "href": "notes/01intro/lecture01.html#conditional-expectation-as-regression",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Conditional expectation as regression",
+    "text": "Conditional expectation as regression\nThe conditional expectation of \\(Y\\) given \\(X = x\\) is\n\\[\n\\mathbb{E}[Y \\mid X = x] = \\int y \\, f_{Y|X}(y \\mid x) \\, dy.\n\\]\nWhy does this matter? Because \\(\\mathbb{E}[Y \\mid X]\\) is the best predictor of \\(Y\\) from \\(X\\) under squared loss. That is, it solves\n\\[\n\\min_{g} \\; \\mathbb{E}\\left[(Y - g(X))^2\\right] \\quad \\Longrightarrow \\quad g^*(X) = \\mathbb{E}[Y \\mid X].\n\\]\nThis is the theoretical justification for regression: the regression function is the conditional expectation. Every regression we run in applied economics is an attempt to approximate this object."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#independence",
+    "href": "notes/01intro/lecture01.html#independence",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Independence",
+    "text": "Independence\n\\(X\\) and \\(Y\\) are independent, written \\(X \\perp\\!\\!\\!\\perp Y\\), if and only if\n\\[\nf_{XY}(x, y) = f_X(x) \\cdot f_Y(y) \\qquad \\text{for all } x, y.\n\\]\nEquivalently: \\(f_{Y|X}(y \\mid x) = f_Y(y)\\). Learning \\(X\\) does not change the distribution of \\(Y\\) — knowing \\(X\\) gives zero predictive power over \\(Y\\)."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#mean-independence",
+    "href": "notes/01intro/lecture01.html#mean-independence",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Mean independence",
+    "text": "Mean independence\nA weaker concept: \\(X\\) and \\(Y\\) are mean independent if \\(\\mathbb{E}[Y \\mid X] = \\mathbb{E}[Y]\\). The conditional mean doesn’t shift, but higher moments (variance, skewness) might. Think heteroskedasticity: \\(X\\) could affect the spread of \\(Y\\) without affecting its center. Mean independence \\(\\not\\Rightarrow\\) full independence."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#conditional-independence",
+    "href": "notes/01intro/lecture01.html#conditional-independence",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Conditional independence",
+    "text": "Conditional independence\nThis is the key concept for the course. \\(X\\) and \\(Y\\) are conditionally independent given \\(Z\\), written \\(X \\perp\\!\\!\\!\\perp Y \\mid Z\\), if\n\\[\nf_{XY|Z}(x, y \\mid z) = f_{X|Z}(x \\mid z) \\cdot f_{Y|Z}(y \\mid z) \\qquad \\text{for all } x, y, z.\n\\]\nEquivalently: \\(f_{Y|XZ}(y \\mid x, z) = f_{Y|Z}(y \\mid z)\\). Once \\(Z\\) is known, learning \\(X\\) gives no additional information about \\(Y\\). Conditional independence captures the absence of a direct link between \\(X\\) and \\(Y\\).\n\nWhy economists should care\nConditional independence appears everywhere in applied work:\n\nCausal identification: the unconfoundedness assumption is a CI statement: \\((Y(1), Y(0)) \\perp\\!\\!\\!\\perp D \\mid X\\).\nSelection problems: apparent group differences may vanish after conditioning on the right variables.\nFinance/macro: sparse dependence means most variable pairs are unrelated once the right controls are included.\nLatent structures: factor models assert that variables become independent once hidden factors are known.\n\nIn empirical work, assumptions are often best understood as CI restrictions — and this course will make that formal using graphs."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#ci-and-regression",
+    "href": "notes/01intro/lecture01.html#ci-and-regression",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "CI and regression",
+    "text": "CI and regression\nConsider the linear model\n\\[\nY = \\beta X + \\gamma Z + \\varepsilon, \\qquad \\varepsilon \\perp\\!\\!\\!\\perp (X, Z).\n\\]\nIf \\(\\beta = 0\\), then \\(Y \\perp\\!\\!\\!\\perp X \\mid Z\\) — full conditional independence. \\(X\\) drops out of the data-generating process once \\(Z\\) is controlled for.\n\n\n\n\n\n\nImportantThe gap between mean and full independence\n\n\n\nIf we only assume \\(\\mathbb{E}[\\varepsilon \\mid X, Z] = 0\\) (the standard OLS exogeneity condition), then \\(\\beta = 0\\) implies only that the conditional mean does not depend on \\(X\\). This does not imply full conditional independence in general. The distinction matters whenever higher-order features of the distribution carry economic content (e.g., risk, inequality, tail behaviour)."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#the-multivariate-normal-distribution",
+    "href": "notes/01intro/lecture01.html#the-multivariate-normal-distribution",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "The multivariate normal distribution",
+    "text": "The multivariate normal distribution\nA random vector \\(X = (X_1, \\ldots, X_m)\\) is Gaussian, written \\(X \\sim N_m(\\mu, \\Sigma)\\), if its density is\n\\[\nf(x) = (2\\pi)^{-m/2} |\\Sigma|^{-1/2} \\exp\\!\\left(-\\tfrac{1}{2}(x - \\mu)^\\top \\Sigma^{-1}(x - \\mu)\\right).\n\\]\nIn Gaussian models, many conditional independence questions become algebraic. This is why Gaussian graphical models are so useful — and why we start here before generalizing."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#gaussian-marginals-and-conditionals",
+    "href": "notes/01intro/lecture01.html#gaussian-marginals-and-conditionals",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Gaussian marginals and conditionals",
+    "text": "Gaussian marginals and conditionals\nPartition \\(X\\) into two subvectors and the mean/covariance conformably:\n\\[\nX = \\begin{pmatrix} X_A \\\\ X_B \\end{pmatrix}, \\qquad\n\\mu = \\begin{pmatrix} \\mu_A \\\\ \\mu_B \\end{pmatrix}, \\qquad\n\\Sigma = \\begin{pmatrix} \\Sigma_{AA} & \\Sigma_{AB} \\\\ \\Sigma_{BA} & \\Sigma_{BB} \\end{pmatrix}.\n\\]\nFor example, with \\(X = (X_1, X_2, X_3)\\) and \\(A = \\{1, 3\\}\\), \\(B = \\{2\\}\\):\n\\[\nX_A = (X_1, X_3), \\qquad \\Sigma_{AA} = \\begin{pmatrix} \\Sigma_{11} & \\Sigma_{13} \\\\ \\Sigma_{31} & \\Sigma_{33} \\end{pmatrix}.\n\\]\nMarginals are easy: \\(X_A \\sim N(\\mu_A, \\Sigma_{AA})\\). Just read off the subblock — no integration needed. Gaussian families are closed under marginalization.\nConditionals are also Gaussian:\n\\[\n\\mathbb{E}[X_A \\mid X_B = x_B] = \\mu_A + \\Sigma_{AB}\\Sigma_{BB}^{-1}(x_B - \\mu_B), \\qquad \\text{Var}(X_A \\mid X_B = x_B) = \\Sigma_{AA} - \\Sigma_{AB}\\Sigma_{BB}^{-1}\\Sigma_{BA}.\n\\]\nTwo key features:\n\nThe conditional mean is linear in \\(x_B\\) (this is why OLS is exact under Gaussianity).\nThe conditional variance does not depend on \\(x_B\\)."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#a-special-gaussian-property-zero-covariance-implies-independence",
+    "href": "notes/01intro/lecture01.html#a-special-gaussian-property-zero-covariance-implies-independence",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "A special Gaussian property: zero covariance implies independence",
+    "text": "A special Gaussian property: zero covariance implies independence\nFor general distributions, \\(\\text{cov}(X_A, X_B) = 0\\) does not imply independence. But for jointly Gaussian vectors:\n\\[\nX_A \\perp\\!\\!\\!\\perp X_B \\quad \\Longleftrightarrow \\quad \\Sigma_{AB} = 0.\n\\]\nThis is a major simplification that many standard tools exploit — even when it isn’t made explicit (e.g., some “independence” tests only test zero covariance)."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#the-precision-matrix",
+    "href": "notes/01intro/lecture01.html#the-precision-matrix",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "The precision matrix",
+    "text": "The precision matrix\nThe precision matrix is the inverse of the covariance matrix:\n\\[\nK = \\Sigma^{-1}.\n\\]\nThis is the central object for the course. While \\(\\Sigma\\) describes marginal dependence (do \\(X_i\\) and \\(X_j\\) co-move?), \\(K\\) describes conditional dependence (is there a direct link once everything else is controlled for?).\nThe key result connecting precision to conditional independence:\n\\[\nX_i \\perp\\!\\!\\!\\perp X_j \\mid X_{\\{1,\\ldots,m\\} \\setminus \\{i,j\\}} \\quad \\Longleftrightarrow \\quad K_{ij} = 0.\n\\]\nA zero off-diagonal entry in \\(K\\) means: once all other variables are controlled for, there is no remaining direct relation between \\(X_i\\) and \\(X_j\\). This is the bridge to graphs — later we will encode these zeros as missing edges.\nFrom the block inversion formula (Schur complement), the conditional variance of \\(X_A\\) given \\(X_B\\) can also be expressed as\n\\[\n\\text{Var}(X_A \\mid X_B) = K_{AA}^{-1}.\n\\]"
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#partial-correlation",
+    "href": "notes/01intro/lecture01.html#partial-correlation",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Partial correlation",
+    "text": "Partial correlation\nFor three variables \\(X\\), \\(Y\\), \\(Z\\), the partial correlation is\n\\[\n\\rho_{X,Y \\cdot Z} = \\frac{\\rho_{XY} - \\rho_{XZ}\\rho_{YZ}}{\\sqrt{(1 - \\rho_{XZ}^2)(1 - \\rho_{YZ}^2)}}.\n\\]\nIt measures the residual linear association between \\(X\\) and \\(Y\\) after removing the linear effect of \\(Z\\). Equivalently, it equals the correlation of the residuals from regressing \\(X\\) on \\(Z\\) and regressing \\(Y\\) on \\(Z\\).\nThere is a direct link to the precision matrix. For the general \\(m\\)-variable case, the partial correlation between \\(X_i\\) and \\(X_j\\) controlling for all remaining variables is:\n\\[\n\\rho_{X_i, X_j \\cdot \\text{rest}} = -\\frac{K_{ij}}{\\sqrt{K_{ii} K_{jj}}}.\n\\]\nIn the Gaussian case, zero partial correlation is equivalent to conditional independence:\n\\[\n\\rho_{X_i, X_j \\cdot \\text{rest}} = 0 \\quad \\Longleftrightarrow \\quad K_{ij} = 0 \\quad \\Longleftrightarrow \\quad X_i \\perp\\!\\!\\!\\perp X_j \\mid X_{\\text{rest}}.\n\\]\n\nEconomic interpretation of sparse precision matrices\nIn macro or finance, a dense covariance matrix (many non-zero \\(\\Sigma_{ij}\\)) simply means many variables co-move. This may reflect common shocks rather than direct links. A sparse precision matrix (many zero \\(K_{ij}\\)) means that after controlling for everything else, only a few pairs remain directly related. This sparsity reveals the actual wiring of the system: contagion channels, input-output links, interbank exposures — stripped of indirect associations."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#the-core-lesson",
+    "href": "notes/01intro/lecture01.html#the-core-lesson",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "The core lesson",
+    "text": "The core lesson\nStatistical conclusions depend on what we condition on. The same data can suggest opposite conclusions under different conditioning sets:\n\nConditioning can remove dependence (by controlling for a confounder).\nConditioning can create dependence (by selecting on a collider).\nA positive association can become negative after conditioning, and vice versa.\n\n\nSimpson’s paradox: kidney stone treatments\nTwo treatments for kidney stones. Overall recovery rates: treatment \\(a\\) at 78%, treatment \\(b\\) at 83%. Treatment \\(b\\) looks better.\n\n\n\n\nOverall\nSmall stones\nLarge stones\n\n\n\n\nTreatment \\(a\\)\n78%\n93%\n73%\n\n\nTreatment \\(b\\)\n83%\n87%\n69%\n\n\n\nTreatment \\(a\\) is better in both subgroups. Stone size is a confounder: large stones are harder to treat, and more severe cases were more likely assigned to treatment \\(a\\). The marginal comparison conflates treatment effects with case severity.\n\n\nSimpson’s paradox: UC Berkeley admissions\nOverall admission rates in 1973: 44% of men vs. 35% of women. But department-by-department, women were admitted at equal or higher rates. Women disproportionately applied to more competitive departments, creating a compositional effect that reversed the sign.\n\n\nBerkson’s paradox: conditioning on a collider\nSuppose Looks (\\(X\\)) and Personality (\\(Y\\)) are independent in the population. You only date people who are either attractive or nice — so being in your dating pool (\\(S\\)) depends on both variables. Within the dating pool, \\(X\\) and \\(Y\\) become negatively correlated: if someone in your pool isn’t attractive, they must be nice.\n\\[\nX \\perp\\!\\!\\!\\perp Y \\text{ in the population}, \\qquad X \\not\\!\\perp\\!\\!\\!\\perp Y \\mid S.\n\\]\nThis is Berkson’s paradox: conditioning on a common effect (collider) of two independent variables creates spurious dependence.\nEconomic examples: wage vs. job satisfaction among workers who stay in a demanding sector; ability vs. family background among students admitted to a selective program.\n\n\nThree structural patterns\nThese examples reduce to three canonical structures:\n\nMediation (\\(X \\to Z \\to Y\\)): \\(X\\) and \\(Y\\) are marginally dependent, but \\(Y \\perp\\!\\!\\!\\perp X \\mid Z\\). Conditioning on the mediator blocks the indirect path.\nConfounding (\\(X \\leftarrow U \\rightarrow Y\\)): \\(X\\) and \\(Y\\) are marginally dependent (spuriously), but \\(X \\perp\\!\\!\\!\\perp Y \\mid U\\). Conditioning on the confounder removes the spurious link.\nCollider (\\(X \\to S \\leftarrow Y\\)): \\(X \\perp\\!\\!\\!\\perp Y\\) marginally, but \\(X \\not\\!\\perp\\!\\!\\!\\perp Y \\mid S\\). Conditioning on the collider creates dependence."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#from-population-to-sample",
+    "href": "notes/01intro/lecture01.html#from-population-to-sample",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "From population to sample",
+    "text": "From population to sample\nEverything so far has been about population properties: \\(X \\perp\\!\\!\\!\\perp Y\\) or \\(X \\perp\\!\\!\\!\\perp Y \\mid Z\\). In data, we observe a sample \\((X^{(1)}, Y^{(1)}), \\ldots, (X^{(n)}, Y^{(n)})\\) and must decide whether the dependence we observe is real or just noise.\nA practical choice: which notion of dependence are we testing?\n\nLinear dependence — captured by Pearson correlation\nArbitrary dependence — requires nonparametric methods like distance correlation"
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#pearson-correlation-and-fishers-z-transform",
+    "href": "notes/01intro/lecture01.html#pearson-correlation-and-fishers-z-transform",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Pearson correlation and Fisher’s \\(z\\)-transform",
+    "text": "Pearson correlation and Fisher’s \\(z\\)-transform\nThe Pearson test assesses \\(H_0: \\rho = 0\\) vs. \\(H_A: \\rho \\neq 0\\). It makes sense when dependence is approximately linear and the Gaussian approximation is reasonable.\nFisher’s \\(z\\)-transform stabilizes the variance of the sample correlation \\(r_n\\):\n\\[\nZ_n = \\frac{1}{2} \\log\\!\\left(\\frac{1 + r_n}{1 - r_n}\\right).\n\\]\nUnder bivariate normality with true correlation \\(\\rho\\):\n\\[\nZ_n \\;\\dot{\\sim}\\; N\\!\\left(\\frac{1}{2}\\log\\!\\left(\\frac{1 + \\rho}{1 - \\rho}\\right),\\; \\frac{1}{n - 3}\\right).\n\\]\nThis transformation is useful because the raw sample correlation \\(r_n\\) has a distribution that depends on \\(\\rho\\) in complicated ways — the \\(z\\)-transform makes inference straightforward with a standard normal pivot.\n\n# Simulate sample correlations under rho = 0.2\nlibrary(MASS)\nset.seed(1)\nn &lt;- 500\niter &lt;- 1000\nrho &lt;- 0.2\nsrho &lt;- rep(0, iter)\nSigma &lt;- matrix(c(1, rho, rho, 1), 2, 2)\nfor (i in 1:iter) {\n  x &lt;- mvrnorm(n, mu = c(0, 0), Sigma = Sigma)\n  srho[i] &lt;- cor(x[,1], x[,2])\n}\n\n\n# Fisher transform: the histogram should match the theoretical normal density\nzrho &lt;- 0.5 * log((1 + srho)/(1 - srho))\nhist(zrho, prob = TRUE, breaks = 30,\n     main = \"Fisher z-transform of sample correlations\", xlab = \"z\")\ncurve(dnorm(x,\n            mean = 0.5 * log((1 + rho)/(1 - rho)),\n            sd = 1/sqrt(n - 3)),\n      add = TRUE, lwd = 2, col = \"blue\")\n\n\n\n\n\n\n\n\nIn R, Fisher’s test is implemented through cor.test():\n\n# Pearson test with rho = 0.2 (should reject H0: rho = 0)\nlibrary(MASS)\nset.seed(1)\nrho &lt;- 0.2\nSigma &lt;- matrix(c(1, rho, rho, 1), 2, 2)\nx &lt;- mvrnorm(n, mu = c(0, 0), Sigma = Sigma)\ncor.test(x[,1], x[,2], method = \"pearson\")\n\n\n    Pearson's product-moment correlation\n\ndata:  x[, 1] and x[, 2]\nt = 3.5632, df = 498, p-value = 0.0004015\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.07096589 0.24201953\nsample estimates:\n      cor \n0.1576753 \n\n\n\n\n\n\n\n\nNoteWhat does the \\(p\\)-value mean?\n\n\n\nIt measures how surprising the observed sample correlation would be under \\(H_0: \\rho = 0\\). A non-significant result does not imply independence — it only means there is insufficient evidence to reject zero linear correlation."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#limitation-of-pearson-correlation-zero-correlation-neq-independence",
+    "href": "notes/01intro/lecture01.html#limitation-of-pearson-correlation-zero-correlation-neq-independence",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Limitation of Pearson correlation: zero correlation \\(\\neq\\) independence",
+    "text": "Limitation of Pearson correlation: zero correlation \\(\\neq\\) independence\nA pair of variables can be strongly dependent yet have zero Pearson correlation. The reason: correlation only measures the linear component of dependence. Nonlinear or symmetric dependence patterns produce \\(\\rho = 0\\).\nThis is connected to a unique Gaussian property: for Gaussian data, zero covariance does imply independence. For any other distribution, it does not. The following example constructs two clearly dependent variables (a 45° rotation of independent uniforms) that are perfectly uncorrelated:\n\n# Two uncorrelated but dependent variables (rotated uniform square)\nset.seed(1); n &lt;- 200\nA &lt;- runif(n) - 1/2; B &lt;- runif(n) - 1/2\nX &lt;- t(c(cos(pi/4), -sin(pi/4)) %*% rbind(A, B))\nY &lt;- t(c(sin(pi/4),  cos(pi/4)) %*% rbind(A, B))\ncor.test(X, Y, method = \"pearson\")\n\n\n    Pearson's product-moment correlation\n\ndata:  X and Y\nt = -0.84711, df = 198, p-value = 0.398\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n -0.1971897  0.0793095\nsample estimates:\n        cor \n-0.06009275 \n\n\nThe Pearson test returns a non-significant \\(p\\)-value — it completely misses the dependence. Why? The support of \\(Y\\) clearly depends on \\(X\\) (plot them and you see a diamond shape), but the linear correlation is zero by construction. Only Gaussian distributions have the special property that a 45° rotation of independent components stays independent; for any other distribution, the rotation introduces dependence that Pearson cannot detect."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#distance-correlation",
+    "href": "notes/01intro/lecture01.html#distance-correlation",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Distance correlation",
+    "text": "Distance correlation\nDistance correlation \\(\\mathcal{R}(X, Y)\\) is a fully nonparametric measure of dependence with the key property:\n\\[\n\\mathcal{R}(X, Y) = 0 \\quad \\Longleftrightarrow \\quad X \\perp\\!\\!\\!\\perp Y.\n\\]\nUnlike Pearson, it detects any form of dependence — nonlinear, non-monotone, tail-driven. The test is implemented via permutation in the energy package:\n\n# Distance correlation detects nonlinear dependence\nlibrary(energy)\nset.seed(1)\nn &lt;- 200\nA &lt;- runif(n) - 1/2\nB &lt;- runif(n) - 1/2\nX &lt;- A + B\nY &lt;- A^2 - B^2\ndcor.test(X, Y, R = 1000)\n\n\n    dCor independence test (permutation test)\n\ndata:  index 1, replicates 1000\ndCor = 0.17033, p-value = 0.04096\nsample estimates:\n      dCov       dCor    dVar(X)    dVar(Y) \n0.02371961 0.17032735 0.28270979 0.06859706 \n\n\n\nA cautionary tale: aircraft data\nThe aircraft dataset from the sm package records wing span and speed across aircraft models. Pearson correlation finds nothing (\\(p = 0.78\\)), but distance correlation detects strong dependence (\\(p &lt; 0.001\\)). The relationship between wingspan and speed is real but nonlinear — Pearson is blind to it.\n\n# Pearson misses it; distance correlation catches it\nlibrary(sm); set.seed(1)\nX &lt;- aircraft$Span\nY &lt;- aircraft$Speed\ncat(\"Pearson p-value:\", cor.test(X, Y)$p.value, \"\\n\")\n\nPearson p-value: 0.7816014 \n\ncat(\"Distance correlation p-value:\", dcor.test(X, Y, R = 1000)$p.value, \"\\n\")\n\nDistance correlation p-value: 0.000999001 \n\n\nImplication for economic data: if returns are heavy-tailed or relationships are nonlinear, Pearson correlation can miss important structure. This motivates the non-paranormal methods we will see in Lecture 2."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#tests-for-discrete-data-the-chi2-test",
+    "href": "notes/01intro/lecture01.html#tests-for-discrete-data-the-chi2-test",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Tests for discrete data: the \\(\\chi^2\\) test",
+    "text": "Tests for discrete data: the \\(\\chi^2\\) test\nFor categorical data, we test independence using the \\(\\chi^2\\) test, which compares observed cell counts to expected counts under independence (expected \\(= \\text{row total} \\times \\text{col total} / \\text{grand total}\\)). Degrees of freedom \\(= (\\text{rows} - 1)(\\text{cols} - 1)\\).\n\n# Chi-squared test: gender vs. party affiliation\nM &lt;- as.table(rbind(c(762, 327, 468), c(484, 239, 477)))\ndimnames(M) &lt;- list(gender = c(\"F\", \"M\"),\n                    party = c(\"Democrat\", \"Independent\", \"Republican\"))\n(Xsq &lt;- chisq.test(M))\n\n\n    Pearson's Chi-squared test\n\ndata:  M\nX-squared = 30.07, df = 2, p-value = 2.954e-07\n\nXsq$expected  # expected counts under independence\n\n      party\ngender Democrat Independent Republican\n     F 703.6714    319.6453   533.6834\n     M 542.3286    246.3547   411.3166\n\n\nHere, df \\(= 2\\) is the difference between 5 free parameters (saturated model) and 3 (independence model)."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#testing-conditional-independence",
+    "href": "notes/01intro/lecture01.html#testing-conditional-independence",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Testing conditional independence",
+    "text": "Testing conditional independence\nTesting \\(X \\perp\\!\\!\\!\\perp Y \\mid Z\\) is much harder than testing marginal independence. Once we condition on \\(Z\\), we must compare conditional laws rather than marginal ones.\nThe difficulty depends on the modelling assumptions:\n\nGaussian data: CI reduces to testing zero partial correlation — relatively straightforward.\nDiscrete data: likelihood-ratio or stratified \\(\\chi^2\\) tests.\nNonlinear / non-Gaussian continuous data: kernel-based methods (e.g., KCI) are available but computationally heavier.\n\n\n# CI test: X and Y are NOT conditionally independent given Z\n# (Y depends on X^2, so both tests should reject)\nlibrary(CondIndTests)\nlibrary(bnlearn)\nset.seed(1)\nn &lt;- 100\nZ &lt;- rnorm(n)\nX &lt;- 4 + 2 * Z + rnorm(n)\nY &lt;- 3 * X^2 + Z + rnorm(n)\n\ncat(\"KCI test p-value:\", CondIndTest(X, Y, Z, method = \"KCI\")$pvalue, \"\\n\")\n\nKCI test p-value: 2.419926e-10 \n\ncat(\"bnlearn CI test p-value:\", bnlearn::ci.test(X, Y, Z)$p.value, \"\\n\")\n\nbnlearn CI test p-value: 1.15458e-25 \n\n\nBoth return very small \\(p\\)-values — correctly detecting that \\(X\\) and \\(Y\\) are not conditionally independent given \\(Z\\) (since \\(Y\\) depends on \\(X^2\\)). Note that bnlearn::ci.test uses a Gaussian (partial correlation) test by default, which happens to reject here because the dependence is strong, but would be less reliable for subtler nonlinear patterns."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#ci-testing-in-discrete-data-uc-berkeley-admissions-revisited",
+    "href": "notes/01intro/lecture01.html#ci-testing-in-discrete-data-uc-berkeley-admissions-revisited",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "CI testing in discrete data: UC Berkeley admissions revisited",
+    "text": "CI testing in discrete data: UC Berkeley admissions revisited\nWe return to the Berkeley admissions data to test \\(\\text{Gender} \\perp\\!\\!\\!\\perp \\text{Admit} \\mid \\text{Dept}\\). Both packages below yield \\(p = 1\\): there is no evidence of direct gender bias once department is conditioned on.\nlibrary(gRim)\ndata(UCBAdmissions)\nbnlearn::ci.test(\n  x = \"Gender\",\n  y = \"Admit\",\n  z = \"Dept\",\n  test = \"x2\",\n  data = as.data.frame(UCBAdmissions)\n)\ngRim::ciTest(\n  as.data.frame(UCBAdmissions),\n  set = ~ Gender + Admit + Dept\n)\n\n\n\nUsing bnlearn\nThe ci.test function from bnlearn performs a \\(\\chi^2\\) conditional independence test, stratifying by the conditioning variable (Dept):\n\n\n\n\n    Pearson's X^2\n\ndata:  Gender ~ Admit | Dept\nx2 = 0, df = 6, p-value = 1\nalternative hypothesis: true value is greater than 0\n\n\n\n\n\nUsing gRim\nThe ciTest function from gRim provides the same test with additional slice-level detail, showing the test statistic within each level of the conditioning variable:\n\n\n\nTesting Gender _|_ Admit | Dept \nStatistic (DEV):    0.000 df: 6 p-value: 1.0000 method: CHISQ\nSlice information:\n  statistic p.value df Dept\n1         0       1  1    A\n2         0       1  1    B\n3         0       1  1    C\n4         0       1  1    D\n5         0       1  1    E\n6         0       1  1    F\n\n\n\n\nThe \\(p\\)-value of 1.0 tells us the observed association between Gender and Admit vanishes entirely once Department is accounted for. The apparent overall disparity was driven purely by differential application patterns across departments — a textbook instance of Simpson’s paradox."
+  },
+  {
+    "objectID": "notes/01intro/lecture01.html#looking-ahead",
+    "href": "notes/01intro/lecture01.html#looking-ahead",
+    "title": "Lecture 01: Conditional Independence as Structure",
+    "section": "Looking ahead",
+    "text": "Looking ahead\nNext lecture, we encode these conditional independence statements visually using undirected graphs:\n\nMissing edge \\(\\Longleftrightarrow\\) conditional independence \\(\\Longleftrightarrow\\) zero in the precision matrix\nHammersley–Clifford theorem: graph separation = density factorization\nGraphical LASSO for learning sparse networks from high-dimensional data\nNon-paranormal models for robustness beyond Gaussianity"
+  }
+]

@@ -28,3 +28,4 @@ images/
 .Trashes
 ehthumbs.db
 Thumbs.db
+**/*.quarto_ipynb
